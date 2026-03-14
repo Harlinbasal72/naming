@@ -139,7 +139,23 @@ Good for infrastructure, databases, and foundational tools.
 - Sound character: Ancient, solid, elemental
 
 ---
+### Celtic mythology
 
+Celtic mythology provides rich naming inspiration that is still relatively underused in technology branding.
+
+Examples of references:
+- **Druid** — spiritual leaders and knowledge keepers in Celtic societies.
+- **Ogham** — an early medieval alphabet used primarily for inscriptions in Ireland and Britain.
+- **Sidhe (pronounced "shee")** — supernatural beings associated with the Otherworld in Irish mythology.
+
+Why it works for naming:
+- Strong mystical imagery.
+- Distinctive phonetics compared with Greco-Roman mythological names.
+- Less saturation compared with Norse references like Odin or Loki.
+
+Example naming opportunities:
+- Developer tools or AI assistants: *Druid*, *Sidhe*, *Ogham*.
+- Infrastructure tools: *StoneCircle*, *OakDruid*.
 ## Multi-Level Names
 
 The best cultural reference names work on multiple levels simultaneously:
