@@ -150,7 +150,9 @@ Recommend the user sit with finalists for 24 hours before deciding.
 | [availability.md](availability.md) | When checking platform availability |
 | [case-studies.md](case-studies.md) | When studying real-world naming examples |
 | [evaluation.md](evaluation.md) | When scoring and comparing finalists |
-| [languages/](languages/) | When naming for a non-English or multilingual audience — load the relevant locale file |
+| [languages/pl.md](languages/pl.md) | When naming for a Polish audience |
+| [languages/pt-PT.md](languages/pt-PT.md) | When naming for a European Portuguese audience |
+| [languages/pt-BR.md](languages/pt-BR.md) | When naming for a Brazilian Portuguese audience |
 
 ## Key Rules
 
