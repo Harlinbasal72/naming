@@ -62,23 +62,68 @@ Load these references as needed:
 
 ### Step 4: Filter
 
-Apply the anti-pattern checklist and evaluation criteria to cut candidates down to 5-10 finalists.
+Apply the anti-pattern checklist and evaluation criteria to cut candidates down to ~10 semifinalists.
 
 Load these references:
 - [anti-patterns.md](anti-patterns.md) — patterns that kill names
 - [evaluation.md](evaluation.md) — scoring rubric and comparison framework
 
-### Step 5: Evaluate & Compare
+### Step 5: Availability Gate (MANDATORY)
 
-Score finalists against weighted criteria. Run contextual sentence tests. Compare side-by-side.
+**This step is blocking. Do NOT skip it. Do NOT proceed to evaluation without completing it.**
+
+Before anyone gets emotionally invested in a name, check whether it's actually available. Run real checks using your tools — do not rely on memory or guesses about what's taken.
+
+Load [availability.md](availability.md) for the full checking workflow and decision framework.
+
+**What to check is determined by the naming brief (Step 1, question 6).** The user told you which platforms matter. Use that answer to decide which checks are mandatory vs. nice-to-have. Refer to the "Availability Decision Framework" table in availability.md to prioritize.
+
+#### Required actions for EVERY semifinalist:
+
+**Prefer command-line tools** (curl, whois, npm, gh) over WebSearch/WebFetch. CLI tools give deterministic, parseable results. Use WebSearch only for checks that have no CLI equivalent (competitor search, app stores, social handles).
+
+**Run checks in parallel where possible** — batch multiple curl/whois commands in a single Bash call to avoid doing 10 checks one at a time.
+
+**1. Competitor conflict search (WebSearch):**
+- Search `"[name]" [product category/industry]` — is there a direct competitor with this name?
+- Search `"[name]" software` or `"[name]" app` as a broader check
+- If a direct competitor exists in the same space, the name is **dead**. Drop it.
+
+**2. Domain checks (Bash — whois):**
+- At minimum check `.com` and the most relevant TLD for the product type
+- Bash: `whois [name].com 2>&1 | grep -iE "no match|not found|no data found|available"` — match = available
+- If whois is not installed or fails, fall back to: `curl -s -o /dev/null -w "%{http_code}" https://[name].com` — but note this only checks if a site is live, not domain registration
+- If exact `.com` is taken, also check prefix variants: `whois get[name].com`, `whois use[name].com`
+
+**3. Platform-specific checks (based on naming brief):**
+
+Run whichever of these the naming brief requires:
+
+| Platform | How to check |
+|----------|-------------|
+| **npm** | Bash: `npm view [name] 2>&1` — "not found" = available |
+| **PyPI** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://pypi.org/project/[name]/` — 404 = available |
+| **GitHub org** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://github.com/[name]` — 404 = available |
+| **GitHub repo** | Bash: `gh repo view [org]/[name] 2>&1` — "not found" = available |
+| **crates.io** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://crates.io/api/v1/crates/[name]` — 404 = available |
+| **RubyGems** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://rubygems.org/api/v1/gems/[name].json` — 404 = available |
+| **WP plugin slug** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&slug=[name]` — check response for "null" = available |
+| **Telegram** | Bash: `curl -s -o /dev/null -w "%{http_code}" https://t.me/[name]` — 404 = available |
+| **App stores** | WebSearch: `"[name]" site:apps.apple.com` or `"[name]" site:play.google.com` |
+| **Social handles** | WebSearch: `site:x.com/[name]`, `site:instagram.com/[name]` |
+
+**4. Decision gate:**
+- **Drop** candidates that fail critical availability checks (direct competitor, trademark conflict, multiple must-have platforms unavailable)
+- **Flag but keep** candidates where the name is strong enough to justify workarounds (e.g., exact .com taken but get[name].com is free)
+- If fewer than 3 candidates survive, go back to Step 3 and generate more — do NOT lower the bar
+
+Only candidates that pass this gate proceed to Step 6.
+
+### Step 6: Evaluate & Compare
+
+Score the **surviving candidates** against weighted criteria. Run contextual sentence tests. Compare side-by-side.
 
 Load [evaluation.md](evaluation.md) for the full framework.
-
-### Step 6: Validate Availability
-
-Check finalists against real-world platform availability.
-
-Load [availability.md](availability.md) for the checking workflow.
 
 ### Step 7: Present & Decide
 
@@ -86,7 +131,7 @@ Present top 3-5 candidates with:
 - The name
 - Origin story (15-second version)
 - Why it works (which principles it satisfies)
-- Known availability status
+- **Availability status** (which platforms are confirmed available, which need workarounds)
 - Any risks or trade-offs
 
 Recommend the user sit with finalists for 24 hours before deciding.
@@ -107,9 +152,10 @@ Recommend the user sit with finalists for 24 hours before deciding.
 
 ## Key Rules
 
-1. **Never present names without origin stories.** Every name must have a "why."
-2. **Never generate names before establishing context.** Always start with the naming brief.
-3. **Never rely on a thesaurus.** Use metaphor exploration instead.
-4. **Flag AI slop immediately.** If a candidate matches anti-patterns, call it out.
-5. **Respect the user's taste.** If they reject a direction, don't push it — explore a different territory.
-6. **Quality over quantity in finals.** Present 3-5 strong candidates, not 20 mediocre ones.
+1. **Never present names without availability checks.** Every finalist must have real, tool-verified availability status. No guessing from memory. Run the checks.
+2. **Never present names without origin stories.** Every name must have a "why."
+3. **Never generate names before establishing context.** Always start with the naming brief.
+4. **Never rely on a thesaurus.** Use metaphor exploration instead.
+5. **Flag AI slop immediately.** If a candidate matches anti-patterns, call it out.
+6. **Respect the user's taste.** If they reject a direction, don't push it — explore a different territory.
+7. **Quality over quantity in finals.** Present 3-5 strong candidates, not 20 mediocre ones.
