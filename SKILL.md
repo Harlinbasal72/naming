@@ -154,10 +154,10 @@ Recommend the user sit with finalists for 24 hours before deciding.
 
 ## Key Rules
 
-1. **Never present names without availability checks.** Every finalist must have real, tool-verified availability status. No guessing from memory. Run the checks.
-2. **Never present names without origin stories.** Every name must have a "why."
-3. **Never generate names before establishing context.** Always start with the naming brief.
-4. **Never rely on a thesaurus.** Use metaphor exploration instead.
-5. **Flag AI slop immediately.** If a candidate matches anti-patterns, call it out.
-6. **Respect the user's taste.** If they reject a direction, don't push it — explore a different territory.
-7. **Quality over quantity in finals.** Present 3-5 strong candidates, not 20 mediocre ones.
+1. **Never generate names before establishing context.** Always start with the naming brief.
+2. **Never rely on a thesaurus.** Use metaphor exploration instead.
+3. **Flag AI slop immediately.** If a candidate matches anti-patterns, call it out.
+4. **Never present names without availability checks.** Every finalist must have real, tool-verified availability status. No guessing from memory. Run the checks.
+5. **Never present names without origin stories.** Every name must have a "why."
+6. **Quality over quantity in finals.** Present 3-5 strong candidates, not 20 mediocre ones.
+7. **Respect the user's taste.** If they reject a direction, don't push it — explore a different territory.
